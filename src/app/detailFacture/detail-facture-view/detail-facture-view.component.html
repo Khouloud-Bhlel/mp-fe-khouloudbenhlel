@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/facture/index">Gestion Facture</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/facture/create"> Facture</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/detailfacture/create"> Facture Detail</a>
+    </li>
+  </ul>
+</nav>    
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+  <div class="container">
+   
+
+    <div *ngIf="factureDetail" class="mt-4">
+      <h2>Détails de la facture</h2>
+      <p>ID : {{ factureDetail.id }}</p>
+      <p>Produit : {{ getProductName(factureDetail.produit) }}</p>
+      <p>Quantité : {{ factureDetail.quantite }}</p>
+      <p>Prix : {{ factureDetail.prix  }}</p>
+      <p>Montant : {{ factureDetail.montant }}</p>
+      <!-- Autres détails à afficher -->
+      <a routerLink="/facture/index">Retourner </a>
+    </div>
+  </div>
+</body>

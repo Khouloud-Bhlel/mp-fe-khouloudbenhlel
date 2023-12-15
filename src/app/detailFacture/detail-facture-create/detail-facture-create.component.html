@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/facture/index">Gestion Facture</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/facture/create"> Facture</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/detailfacture/create"> Facture Detail</a>
+    </li>
+  </ul>
+</nav> 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center" style="color: blue;">Ajout d'une detail facture</h2>
+
+<form [formGroup]="formData" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="produit">Produit:</label>
+    <select class="form-control" formControlName="produit" id="produit" (change)="selectPrice($event)">
+      <option value="0">--select--</option>
+      <option *ngFor="let produit of produits" [value]="produit.id">{{ produit.designation }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="quantite">Quantite:</label>
+    <input type="number" class="form-control" formControlName="quantite" id="quantite" (keyup)="cal()" [class.is-invalid]="formData.value.quantite == 0" >
+  </div>
+
+  <div class="form-group">
+    <label for="prixunitaire">Prix </label>
+    <input class="form-control" formControlName="prix" id="prix" (keyup)="cal()" [class.is-invalid]="formData.value.prix == 0" [value]="prix" readonly>
+  </div>
+  
+
+  <div class="form-group">
+    <label for="montant">Montant:</label>
+    <input type="number" class="form-control" formControlName="montant" id="montant" readonly>
+  </div>
+<div class="form-group">
+          <label for="facture">Facture:</label>
+          <select class="form-control" formControlName="facture"  id="facture"  >
+            <option *ngFor="let facture of factures" [value]="facture.id">{{ facture.id }}</option>
+          </select>
+        </div>
+  <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
+        </div></div></div></div></div>

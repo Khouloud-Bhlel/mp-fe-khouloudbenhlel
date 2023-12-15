@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/facture/index">Gestion Facture</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/facture/create"> Facture</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/detailfacture/create"> Facture Detail</a>
+    </li>
+  </ul>
+</nav>   
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+  <h2>Edition de la facture {{ facture.id }}</h2>
+  <form  (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="numero">Numéro:</label>
+      <input type="text" class="form-control" id="numero" [(ngModel)]="facture.numero" name="numero">
+    </div>
+    <div class="form-group">
+      <label for="dateFact">Date:</label>
+      <input type="text" class="form-control" id="dateFact" [(ngModel)]="facture.dateFact" name="dateFact">
+    </div>
+    <div class="form-group">
+      <label for="responsable">Client:</label>
+      <input type="text" class="form-control" id="responsable" [(ngModel)]="facture.responsable.nom" name="responsable">
+    </div>
+    <div class="form-group">
+      <label for="devise">Devise:</label>
+      <input type="text" class="form-control" id="devise" [(ngModel)]="facture.devise.symbole" name="devise">
+    </div>
+    <button type="submit" class="btn btn-dark" >Enregistrer</button>
+  </form>
+</div>
+      </div></div></div></div>

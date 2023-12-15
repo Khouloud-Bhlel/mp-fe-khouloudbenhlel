@@ -1,0 +1,46 @@
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/facture/index">Gestion Facture</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/facture/create"> Facture</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/detailfacture/create"> Facture Detail</a>
+      </li>
+    </ul>
+  </nav>
+<div class="card-container" id="htmlData">
+  <div *ngFor="let facture of factures">
+    <div class="card custom-card">
+      <div class="card-header">
+        Facture {{ facture.id }}
+      </div>
+      
+      <div class="card-body">
+        <p>Numero: {{ facture.numero }}</p>
+        <p>Date: {{ facture.dateFact }}</p>
+        <p>Client: {{facture.responsable.nom}} </p>
+        <p>Devise: {{ facture.devise.symbole }}</p>
+        <button type="button" class="btn btn-default" [routerLink]="['/detailfacture/view', facture.id]">
+          <i class="bi bi-card-text" style="color:green;"></i>
+        </button>
+     
+      <button type="button" class="btn btn-default" [routerLink]="['/facture/edit', facture.id]">
+        <i class="bi bi-pencil-square" style="color:blue" ></i> 
+      </button>
+      <button type="button" class="btn btn-default" (click)="deleteFacture(facture.id)">
+        <i class="bi bi-trash-fill" style="color:red" ></i> 
+      </button>
+ 
+ 
+      
+        <button type="button" class="btn btn-default" (click)="downloadPDF(facture,detail)">
+          Télécharger PDF
+        </button>
+        
+      </div>
+  </div>
+</div>

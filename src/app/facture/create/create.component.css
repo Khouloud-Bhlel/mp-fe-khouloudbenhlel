@@ -1,0 +1,16 @@
+.centered-form {
+    text-align: center;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    color: green;
+  }
+  .card {
+    margin-top: 50px; /* Espacez la carte du haut de la page */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
